@@ -32,7 +32,7 @@ static irq_handler_t gpio_irq_handler(unsigned int irq, void *dev_id, struct pt_
 
 //--------------------------------Intialization function------------------------------
 
-/** @breif The LKM initialization function
+/** @breif The LKM initialization   function
  * The static keyword resticts the visibity of the function within the file. 
  * The __init means this function is used while initialization and memory freed up after that point
  * function setup the GPIOs and IRQ.
