@@ -1,8 +1,31 @@
-/** 
- * @file   gpio_test.c
- * @author Vishal Chopra
- * @date   19 May 2016
- * @breif A kernel module for controlling a GPIO LED/button pair. The device m
+head	1.1;
+access;
+symbols;
+locks; strict;
+comment	@ * @;
+
+
+1.1
+date	2016.05.21.13.40.11;	author root;	state Exp;
+branches;
+next	;
+
+
+desc
+@GPIO Drvier for the BeagleBoneBlack
+@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@/** 
+ * @@file   gpio_test.c
+ * @@author Vishal Chopra
+ * @@date   19 May 2016
+ * @@breif A kernel module for controlling a GPIO LED/button pair. The device m
  * mountd via sysfs /sys/class/gpio/gpio115 and gpio49. LED is attached at the
  * GPIO 49 which is on P9_23 and the button is attached to GPIO 115 is on P9_27
 */
@@ -32,11 +55,11 @@ static irq_handler_t gpio_irq_handler(unsigned int irq, void *dev_id, struct pt_
 
 //--------------------------------Intialization function------------------------------
 
-/** @breif The LKM initialization function
+/** @@breif The LKM initialization function
  * The static keyword resticts the visibity of the function within the file. 
  * The __init means this function is used while initialization and memory freed up after that point
  * function setup the GPIOs and IRQ.
- * @return return 0 if successful.
+ * @@return return 0 if successful.
  */
 
 static int __init gpio_init(void)
@@ -74,7 +97,7 @@ static int __init gpio_init(void)
 
 //---------------------------------Exit Function--------------------------------------
 
-/** @brief The LKM Cleanup function
+/** @@brief The LKM Cleanup function
   * This function is used to release the GPIOs and display messages
 */
 
@@ -93,12 +116,12 @@ static void __exit gpio_exit(void)
 
 //--------------------------------Interrupt Handler------------------------------------
 
-/** @breif The interrupt handler function
+/** @@breif The interrupt handler function
   * The nterrupt handler attached to the GPIO. Used to perform function when interrupt is generated.
-  * @param irq associated with the GPIO
-  * @param dev_id Sturture is used to identify the interruot from which device, in this case it is NULL
-  * @param regs  h/w specify register ---only use for the debugging
-  * @return return IRQ_HANDLER if Successful otherwise IRQ_NONE
+  * @@param irq associated with the GPIO
+  * @@param dev_id Sturture is used to identify the interruot from which device, in this case it is NULL
+  * @@param regs  h/w specify register ---only use for the debugging
+  * @@return return IRQ_HANDLER if Successful otherwise IRQ_NONE
 **/
 
 static irq_handler_t gpio_irq_handler(unsigned int irq, void *dev_id, struct pt_regs *regs)
@@ -113,3 +136,4 @@ static irq_handler_t gpio_irq_handler(unsigned int irq, void *dev_id, struct pt_
 
 module_init(gpio_init);
 module_exit(gpio_exit);
+@
