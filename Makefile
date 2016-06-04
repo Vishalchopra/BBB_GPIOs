@@ -1,6 +1,6 @@
 INSTALLDIR=$(shell pwd)/modules
 obj-m := lkm.o
-lkm-objs := gpio_test.o
+lkm-objs := button.o 
 
 
 all:
@@ -11,3 +11,4 @@ all:
 clean:
 	make -C /lib/modules/$(shell uname -r)/build/ M=$(PWD) clean
 	@rm -rf $(INSTALLDIR)
+	@rm -rf *.symvers *.order
